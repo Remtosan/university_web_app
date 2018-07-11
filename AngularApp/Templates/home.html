@@ -1,0 +1,69 @@
+<div class="container">
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" ><img src=""></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a  class="nav-link" >{{user.first_name}}</a>
+                </li>
+                <li class="nav-item active">
+                    <a  class="nav-link">{{user.last_name}}</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">LogOut</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="boton"><button class="btn btn-dark" data-ng-click="showContent()">Show informative content </button></div>
+<section class="seccion">
+    <div data-ng-if="show">
+    <article>
+        <header>
+            <h2>User Information</h2>
+        </header>
+            <span> Name : {{user.first_name}}</span>
+            <br>
+            <span> LastName : {{user.last_name}}</span>
+            <br>
+            <span> Document ID : {{user.document_id}}</span>
+            <br>
+            <span> Email : {{user.email}}</span>
+            <br>
+            <span> User Type Name : {{user.user_type_name}}</span>
+            <br>
+            <span> User Type ID : {{user.user_type_id}}</span>
+            <br>
+            <span> Store ID : {{user.store_id}}</span>
+            <br>
+            <span> Business ID : {{user.business_id}}</span>
+            <br>
+            <span> Business Name : {{user.business_name}}</span>
+            <br>
+        <h3>See your Violations</h3>
+        <button class="btn btn-dark" data-ng-click="violations()"> Violations</button>
+    </article>
+    </div>
+    <div data-ng-if="showTest1">
+        <article>
+            <header>
+                <h2>User Information</h2>
+            </header>
+            <ul>
+                <li> Name : {{user.first_name}}</li>
+                <li> LastName : {{user.last_name}}</li>
+            </ul>
+        </article>
+    </div>
+</section>
+    <aside class="columna">
+        <button class="btn btn-dark" data-ng-click="test1()">Muestra Numero 1</button>
+        <hr>
+        <button class="btn btn-dark" data-ng-click="test2()">Muestra Numero 2</button>
+    </aside>
+</div>
