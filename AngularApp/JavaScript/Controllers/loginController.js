@@ -22,7 +22,7 @@ app.controller("loginController",function ($scope, $http, $location)
                     sessionStorage.setItem("isLoggedIn", true);
                     sessionStorage.setItem("userInfo", JSON
                         .stringify(response.data.ReaxiumResponse.object[0].AccessInfo.userInfo));
-                    $location.url("/home");
+                    $location.url("/university");
                 }else {
                    alert(response.data.ReaxiumResponse.message);
                     $scope.show = false;

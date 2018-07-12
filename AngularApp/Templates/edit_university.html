@@ -1,0 +1,10 @@
+<div data-ng-if="!loading">
+    <form class="form-inline" ng-submit="addUniversity()" name="formu">
+        <label class="mb-2 mr-sm-2">University Name</label>
+        <input required type="text" ng-model="university.University_Name" class="form-control" placeholder="University">
+        <button class="btn btn-primary mb-2" type="submit" ng-disabled="!formu.$valid" > Añadir </button>
+    </form>
+</div>
+<div data-ng-if="loading">
+    <h1>CARGANDO...</h1>
+</div>

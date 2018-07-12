@@ -5,15 +5,15 @@ app.config(["$routeProvider",function ($routeProvider) {
                   templateUrl : "AngularApp/Templates/login.html",
                   controller : "loginController"
                 })
-                .when("/home",
+                .when("/university",
                 {
-                  templateUrl : "AngularApp/Templates/home.html",
-                  controller : "appController"
+                  templateUrl : "AngularApp/Templates/university.html",
+                  controller : "universityController"
                 })
-                .when("/home/violations",
+                .when("/university/edit_university/:University_ID",
                     {
-                        templateUrl : "AngularApp/Templates/violations.html",
-                        controller : "violationsController"
+                        templateUrl : "AngularApp/Templates/edit_university.html",
+                        controller : "editUniversityController"
                     })
                 .otherwise({
                     redirectTo : "/"
