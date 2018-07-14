@@ -18,13 +18,22 @@ app.controller("universityController",function ($scope, $http, $location)
             };
 
 
-        $scope.edit = function (universityId) {
+    function checkUser () {
+        if (sessionStorage.getItem("isLoggedIn") == "false"){
+            $location.url("/");
+        }
+    }
+    checkUser();
+
+
+
+    $scope.edit = function (universityId) {
 
                 $location.url ("/university/edit_university/" + universityId);
         }
 
 
-
+        //*----- Obtener Todas las Universidades -----*//
         function getAll()
         {
             $http.post("http://localhost/university_cloud/University/getAll", request).
@@ -41,6 +50,7 @@ app.controller("universityController",function ($scope, $http, $location)
         }
         getAll();
 
+        //*----- Obtener Las Universidades por ID -----*//
         $scope.searchById = function ()
         {
 
@@ -60,9 +70,7 @@ app.controller("universityController",function ($scope, $http, $location)
             });
         }
 
-
-
-
+        //*----- Eliminar Universidades -----*//
         $scope.deleteUniversity = function (id)
         {
             request.GE3PRequest.Universities = {"University_ID": id};
