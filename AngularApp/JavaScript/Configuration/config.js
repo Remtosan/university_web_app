@@ -15,6 +15,16 @@ app.config(["$routeProvider",function ($routeProvider) {
                         templateUrl : "AngularApp/Templates/edit_university.html",
                         controller : "editUniversityController"
                     })
+                .when("/university/career",
+                    {
+                        templateUrl : "AngularApp/Templates/career.html",
+                        controller : "careerController"
+                    })
+                .when("/university/students",
+                    {
+                        templateUrl : "AngularApp/Templates/students.html",
+                        controller : "studentsController"
+                    })
                 .otherwise({
                     redirectTo : "/"
                 })
