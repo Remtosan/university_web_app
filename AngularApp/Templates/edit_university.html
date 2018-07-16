@@ -1,4 +1,5 @@
-<div data-ng-if="!loading">
+<header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
+<div data-ng-if="!loading" class="container">
     <form class="form-inline" ng-submit="addUniversity()" name="formu">
         <label class="mb-2 mr-sm-2">University Name</label>
         <input required type="text" ng-model="university.University_Name" class="form-control" placeholder="University">
