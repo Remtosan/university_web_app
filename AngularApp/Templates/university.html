@@ -1,7 +1,9 @@
 <header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
 <div class="container">
-    <h2>Universities Available in our Country</h2>
-    <p>This list represent the following Universities </p>
+    <h2 style="text-align: center"> Universities Available in our Country</h2>
+    <p style="text-align: center">This list represent the following Universities </p>
+    <br>
+    <i id="add" class="fas fa-plus-square" data-ng-click="getForm()"></i>
     <table class="table table-bordered table-dark">
         <thead>
         <tr>
@@ -14,11 +16,10 @@
         <tr data-ng-repeat="x in universities">
             <td>{{x.University_ID}}</td>
             <td>{{x.University_Name}}</td>
-            <td>
-                <button class="btn btn-light" data-ng-click="edit(x.University_ID)">Edit</button>
-                <button class="btn btn-danger" ng-click="deleteUniversity(x.University_ID)">&times</button>
+            <td class="text-center">
+                <i class="fas fa-pencil-alt" id="edit" data-ng-click="edit(x.University_ID)" ></i>
+                <i class="fas fa-trash-alt"  id="delete" data-ng-click="deleteUniversity(x.University_ID)"></i>
             </td>
-
         </tr>
         </tbody>
     </table>

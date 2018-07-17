@@ -51,6 +51,28 @@ body {
 	border: 1px solid #daf1ff;
 }
 
+#add {
+	font-size:40px;color:black;
+	float: right;
+
+}
+
+#delete {
+	margin-right: 5%;
+	font-size:20px;color:cornflowerblue;
+}
+
+#edit {
+	margin-right: 5%;
+	font-size:20px;color:cornflowerblue;
+}
+
+i:hover {
+	cursor: pointer;
+}
+
+
+
 
 /* The starting CSS styles for the enter animation */
 .ngAnimation.ng-enter {

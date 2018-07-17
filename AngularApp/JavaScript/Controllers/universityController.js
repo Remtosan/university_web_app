@@ -6,6 +6,12 @@ app.controller("universityController",function ($scope, $http, $location)
         $scope.universities = [{}];
         $scope.universities2 = {};
 
+    $scope.getForm = function () {
+
+        $location.url ("/university/wizardForm");
+
+    }
+
         var request =
             {
                 "GE3PRequest":

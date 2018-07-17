@@ -1,0 +1,22 @@
+<header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
+<br>
+<div data-ng-if="!loading" class="container">
+    <form class="form-inline" data-ng-submit="addStudent()" name="formu">
+        <label class="mb-2 mr-sm-2">Student Name</label>
+        <input required type="text" ng-model="user.First_Name" class="form-control" placeholder="First Name">
+        <br>
+        <label class="mb-2 mr-sm-2">Student Last</label>
+        <input required type="text" ng-model="user.Last_Name" class="form-control" placeholder="Last Name">
+        <br>
+        <label class="mb-2 mr-sm-2">Age</label>
+        <input required type="text" ng-model="user.Age" class="form-control" placeholder="Age">
+        <br>
+        <label class="mb-2 mr-sm-2">Gender</label>
+        <input required type="text" ng-model="user.Sex" class="form-control" placeholder="Gender">
+        <br>
+        <button class="btn btn-primary mb-2" type="submit" data-ng-disabled="!formu.$valid" > Modificar </button>
+    </form>
+</div>
+<div data-ng-if="loading">
+    <h1>CARGANDO...</h1>
+</div>

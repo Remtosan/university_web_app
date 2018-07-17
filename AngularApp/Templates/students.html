@@ -1,1 +1,32 @@
 <header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
+<div class="container">
+    <h2 style="text-align: center"> Students Available in our University</h2>
+    <p style="text-align: center">This list represent the following Students </p>
+    <br>
+    <i id="add" class="fas fa-plus-square" data-ng-click="getForm()"></i>
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Last</th>
+            <th>Student Age</th>
+            <th>Student Gender</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="x in students">
+            <td>{{x.User_ID}}</td>
+            <td>{{x.First_Name}}</td>
+            <td>{{x.Last_Name}}</td>
+            <td>{{x.Age}}</td>
+            <td>{{x.Sex}}</td>
+            <td class="text-center">
+                <i class="fas fa-pencil-alt" id="edit" data-ng-click="edit(x.User_ID)" ></i>
+                <i class="fas fa-trash-alt"  id="delete" data-ng-click="deleteStudent(x.User_ID)"></i>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -47,6 +47,7 @@ app.controller("editUniversityController",function ($scope, $http, $location, $r
                 //debugger;
                 if (response.data.GE3PResponse.code == 0)
                 {
+                    $location.url("/university");
                 }else
                 {console.log(response.data.GE3PResponse.message);
                 }
