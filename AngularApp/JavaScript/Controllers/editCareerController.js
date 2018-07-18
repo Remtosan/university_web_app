@@ -1,20 +1,21 @@
-app.controller("editStudentController",function ($scope, $http, $location, $routeParams){
-
+app.controller("editCareerController",function ($scope, $http, $location, $routeParams){
     $scope.disabled = false;
     $scope.loading = false;
-    $scope.user = {};
-    var studentId = $routeParams.User_ID;
+    $scope.career = {};
+    var careerId = $routeParams.Career_ID;
 
     var request =
         {
             "GE3PRequest":
                 {
-                    "Student":
+                    "Career":
                         {
-                            "User_ID" : studentId
+                            "Career_ID" : careerId
                         }
                 }
         };
+
+
 
     function enableView () {
         //debugger;
@@ -24,15 +25,16 @@ app.controller("editStudentController",function ($scope, $http, $location, $rout
     }
     enableView();
 
-    $scope.getElementsOfUniversity = function (){
+    $scope.getElementsOfCareer = function (){
         $scope.loading = true;
-        $http.post("http://localhost/university_cloud/Student/getById", request).
+        $http.post("http://localhost/university_cloud/Career/getById", request).
         then (function (response) {
             //debugger;
             $scope.loading = false;
             if (response.data.GE3PResponse.code == 0)
             {
-                $scope.user = response.data.GE3PResponse.object[0];
+                $scope.career = response.data.GE3PResponse.object[0];
+
             }else
 
             {console.log(response.data.GE3PResponse.message);
@@ -41,21 +43,21 @@ app.controller("editStudentController",function ($scope, $http, $location, $rout
         })
     }
 
-    $scope.getElementsOfUniversity();
+    $scope.getElementsOfCareer();
 
-    $scope.addStudent = function ()
+    $scope.addCareer = function ()
     {
         $scope.loading = true;
-        request.GE3PRequest.Student = $scope.user;
-        $scope.user = {};
-        $http.post("http://localhost/university_cloud/Student/addStudent", request).
+        request.GE3PRequest.Career = $scope.career;
+        $scope.career = {};
+        $http.post("http://localhost/university_cloud/Career/addCareer", request).
         then(function(response)
         {
             $scope.loading = false;
             //debugger;
             if (response.data.GE3PResponse.code == 0)
             {
-                $location.url("university/students");
+                $location.url("/university/career");
             }else
             {console.log(response.data.GE3PResponse.message);
             }

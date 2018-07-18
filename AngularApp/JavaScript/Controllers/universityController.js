@@ -3,12 +3,13 @@
  */
 app.controller("universityController",function ($scope, $http, $location)
 {
+
+    sessionStorage.setItem("isInView", false);
         $scope.universities = [{}];
-        $scope.universities2 = {};
 
     $scope.getForm = function () {
 
-        $location.url ("/university/wizardForm");
+        $location.url ("/university/AddForm");
 
     }
 
@@ -31,12 +32,23 @@ app.controller("universityController",function ($scope, $http, $location)
     }
     checkUser();
 
+    $scope.test = function (){
+        debugger;
+        $scope.test2;
+}
+
 
 
     $scope.edit = function (universityId) {
 
                 $location.url ("/university/edit_university/" + universityId);
         }
+
+    $scope.view = function (universityId) {
+        //debugger;
+        sessionStorage.setItem("isInView", true);
+        $location.url ("/university/edit_university/" + universityId);
+    }
 
 
         //*----- Obtener Todas las Universidades -----*//
@@ -80,19 +92,21 @@ app.controller("universityController",function ($scope, $http, $location)
         $scope.deleteUniversity = function (id)
         {
             request.GE3PRequest.Universities = {"University_ID": id};
+            if (confirm("Esta Seguro de Querer Eliminar la Universidad?")) {
+                $http.post("http://localhost/university_cloud/University/deleteUniversity", request).
+                then(function(response)
+                {
+                    //debugger;
+                    if (response.data.GE3PResponse.code == 0)
+                    {
+                        getAll();
+                    }else
+                    {
+                        console.log(response.data.GE3PResponse.message);
+                    }
+                });
 
-            $http.post("http://localhost/university_cloud/University/deleteUniversity", request).
-            then(function(response)
-            {
-                //debugger;
-                if (response.data.GE3PResponse.code == 0)
-                {
-                    getAll();
-                }else
-                {
-                    console.log(response.data.GE3PResponse.message);
-                }
-            });
+            }
         }
     });
 

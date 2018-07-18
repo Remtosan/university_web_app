@@ -25,15 +25,25 @@ app.config(["$routeProvider",function ($routeProvider) {
                         templateUrl : "AngularApp/Templates/students.html",
                         controller : "studentsController"
                     })
-                .when("/university/wizardForm",
+                .when("/university/AddForm",
                     {
-                        templateUrl : "AngularApp/Templates/wizardForm.html",
-                        controller : "WizardController"
+                        templateUrl : "AngularApp/Templates/AddForm.html",
+                        controller : "AddFormController"
+                    })
+                .when("/university/students/AddStudentForm",
+                    {
+                        templateUrl : "AngularApp/Templates/AddStudentForm.html",
+                        controller : "AddStudentFormController"
                     })
                 .when("/university/editStudent/:User_ID",
                     {
                         templateUrl : "AngularApp/Templates/editStudent.html",
                         controller : "editStudentController"
+                    })
+                .when("/university/editCareer/:Career_ID",
+                    {
+                        templateUrl : "AngularApp/Templates/editCareer.html",
+                        controller : "editCareerController"
                     })
                 .otherwise({
                     redirectTo : "/"

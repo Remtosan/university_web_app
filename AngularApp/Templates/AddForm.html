@@ -1,0 +1,13 @@
+<header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
+<form data-ng-submit="addUniversity()" name="formu" class="container">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label>University Name</label>
+            <input type="text" class="form-control" data-ng-model="university.University_Name" placeholder="University">
+        </div>
+        <select name="s" id="s" multiple ng-model="university.Careers" >
+            <option ng-value="c.Career_ID" ng-repeat="c in careers">{{c.Career_Name}}</option>
+        </select>
+        <button type="submit" data-ng-disabled="!formu.$valid" class="btn btn-primary">Añadir</button>
+    </div>
+</form>

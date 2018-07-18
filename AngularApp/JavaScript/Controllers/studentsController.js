@@ -3,11 +3,12 @@
  */
 app.controller("studentsController",function ($scope, $http, $location, $routeParams){
 
+    sessionStorage.setItem("isInView", false);
     $scope.students = [{}];
 
     $scope.getForm = function () {
 
-        $location.url ("/university/wizardForm");
+        $location.url ("/university/students/AddStudentForm");
 
     }
 
@@ -25,6 +26,12 @@ app.controller("studentsController",function ($scope, $http, $location, $routePa
 
     $scope.edit = function (studentId) {
 
+        $location.url ("/university/editStudent/" + studentId);
+    }
+
+    $scope.view = function (studentId) {
+        //debugger;
+        sessionStorage.setItem("isInView", true);
         $location.url ("/university/editStudent/" + studentId);
     }
 
@@ -71,18 +78,20 @@ app.controller("studentsController",function ($scope, $http, $location, $routePa
     {
         request.GE3PRequest.Student = {"User_ID": id};
 
-        $http.post("http://localhost/university_cloud/Student/deleteStudent", request).
-        then(function(response)
-        {
-            //debugger;
-            if (response.data.GE3PResponse.code == 0)
+        if (confirm("Esta Seguro de Querer Eliminar el Estudiante?")) {
+            $http.post("http://localhost/university_cloud/Student/deleteStudent", request).
+            then(function(response)
             {
-                getAll();
-            }else
-            {
-                console.log(response.data.GE3PResponse.message);
-            }
-        });
+                //debugger;
+                if (response.data.GE3PResponse.code == 0)
+                {
+                    getAll();
+                }else
+                {
+                    console.log(response.data.GE3PResponse.message);
+                }
+            });
+        }
     }
 
 });

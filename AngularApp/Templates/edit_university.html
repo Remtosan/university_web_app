@@ -1,9 +1,11 @@
 <header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
 <div data-ng-if="!loading" class="container">
-    <form class="form-inline" ng-submit="addUniversity()" name="formu">
+    <form class="form-inline" data-ng-submit="addUniversity()" name="formu">
         <label class="mb-2 mr-sm-2">University Name</label>
-        <input required type="text" ng-model="university.University_Name" class="form-control" placeholder="University">
-        <button class="btn btn-primary mb-2" type="submit" ng-disabled="!formu.$valid" > Añadir </button>
+
+        <input data-ng-disabled="disabled" required type="text" data-ng-model="university.University_Name" class="form-control" placeholder="University">
+
+        <button class="btn btn-primary mb-2" type="submit" data-ng-disabled="!formu.$valid" data-ng-if="!disabled" > Añadir </button>
     </form>
 </div>
 <div data-ng-if="loading">

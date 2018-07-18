@@ -1,5 +1,6 @@
 app.controller("editUniversityController",function ($scope, $http, $location, $routeParams){
 
+    $scope.disabled = false;
     $scope.loading = false;
     $scope.university = {};
     var universityId = $routeParams.University_ID;
@@ -14,6 +15,16 @@ app.controller("editUniversityController",function ($scope, $http, $location, $r
                         }
                 }
         };
+
+
+
+    function enableView () {
+        //debugger;
+        if (sessionStorage.getItem("isInView") == "true"){
+            $scope.disabled = true;
+        }
+    }
+    enableView();
 
     $scope.getElementsOfUniversity = function (){
         $scope.loading = true;

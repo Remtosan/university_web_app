@@ -1,1 +1,27 @@
 <header data-ng-include="'AngularApp/Templates/globalHeader.html'"></header>
+<div class="container">
+    <h2 style="text-align: center"> Careers Available in our University</h2>
+    <p style="text-align: center">This list represent the following Careers </p>
+    <br>
+    <i id="add" class="fas fa-plus-square" data-ng-click="getForm()"></i>
+    <table class="table table-bordered table-dark">
+        <thead>
+        <tr>
+            <th>Career ID</th>
+            <th>Career Name</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="x in careers">
+            <td>{{x.Career_ID}}</td>
+            <td>{{x.Career_Name}}</td>
+            <td class="text-center">
+                <i class="fas fa-pencil-alt" id="edit" data-ng-click="edit(x.Career_ID)" ></i>
+                <i class="fas fa-trash-alt"  id="delete" data-ng-click="deleteCareer(x.Career_ID)"></i>
+                <i class="fas fa-book" id="eye" data-ng-click="view(x.Career_ID)" ></i>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
